@@ -3,7 +3,7 @@
     #include<stdbool.h>
     #include<stdlib.h>
 
-    int* removeduplicate(int *intarr,int n);
+    void removeduplicate(int *intarr,int n);
 
     int main()
     {
@@ -20,9 +20,8 @@
         for(int i=0;i<n;i++){
             printf("%d ",intarr[i]);
         }
-
         removeduplicate(intarr,n);
-        
+
         printf("\nArray after changes:\n");
         for(int i=0;i<n;i++)
         {
@@ -34,16 +33,17 @@
     //1    -1   2   -1  -1   3   -1     
 
     //Output: 1   2   3
-    int* removeduplicate(int *intarr,int n)
+    void removeduplicate(int *intarr,int n)
     {
-        int answer[n],k=0;
+        int *answer=(int*)malloc(n*sizeof(int));
+        int k=0;
         for(int i=0;i<n-1;i++)//i=0,1,2,3,4,5
         {
             if(intarr[i]==-1)
             {
                 continue;
             }
-            answer[k]=intarr[i];//  
+            intarr[k]=intarr[i];//  
             k++;
             //              k
             //0     1   2   3   4
@@ -55,7 +55,16 @@
                     intarr[j]=-1;       
                 }
             }
+            printf("\nPass %d \n",i);
+        for(int i=0;i<n;i++)
+        {
+            printf("%d ", intarr[i]);
         }
-        return intarr;
+        printf("\n");
+        }
+        while(k<n){
+            intarr[k]=-1;
+            k++;}
+        return ;
     }
     //1 1   2   2   2   3   3
