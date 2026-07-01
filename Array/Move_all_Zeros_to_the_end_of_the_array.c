@@ -41,21 +41,21 @@
         //          i
         //0     1   2   3   4   5   6  7    8   
         //1     0   2   3   0   4   0  1
-        int t=0;
+        int t=0;//0,1
         for(int i=0;i<n;i++)
         {
             if(intarr[i]!=0)
             {
-                intarr[t]=intarr[i];//t=1
+                intarr[t]=intarr[i];//intarr[1]=1
                 t++;
             }
         }
+        
         while(t<n)
         {
             intarr[t]=0;
             t++;
         }
-
         return intarr;
     }
 
